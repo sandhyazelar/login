@@ -1,10 +1,8 @@
 [Unit]
-Description=Todo Service
-
+Description = login Service
 [Service]
-Environment=REDIS_HOST=REDIS_ENDPOINT
-ExecStart=/bin/node /home/app/todo/server.js
-SyslogIdentifier =todo
-
-[Install]
-WantedBy=multi-user.target
+User=root
+Environment=USERS_API_ADDRESS=http://USERS_ENDPOINT
+Environment=AUTH_API_PORT=8080
+ExecStart=/root/go/src/login/login
+SyslogIdentifier=login
